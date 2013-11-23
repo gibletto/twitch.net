@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Twitch.Net.Model.Blocks
+namespace Twitch.Net.Model
 {
-    class Block
+    public class Channel
     {
     }
 }

@@ -51,9 +51,11 @@
   <ItemGroup>
     <Compile Include="Clients\TwitchAuthenticatedClient.cs" />
     <Compile Include="Clients\TwitchReadOnlyClient.cs" />
+    <Compile Include="Clients\TwitchStaticReadOnlyClient.cs" />
     <Compile Include="Enums\ClientType.cs" />
     <Compile Include="Enums\PeriodType.cs" />
     <Compile Include="Enums\SearchType.cs" />
+    <Compile Include="Helpers\DynamicExtensions.cs" />
     <Compile Include="Helpers\DynamicJsonDeserializer.cs" />
     <Compile Include="Helpers\PagingInfo.cs" />
     <Compile Include="Interfaces\IPagedList.cs" />
@@ -61,7 +63,14 @@
     <Compile Include="Interfaces\IAuthenticatedTwitchClient.cs" />
     <Compile Include="Interfaces\ITwitchClient.cs" />
     <Compile Include="Interfaces\ITwitchClientFactory.cs" />
-    <Compile Include="Model\Blocks\Block.cs" />
+    <Compile Include="Interfaces\ITwitchStaticClient.cs" />
+    <Compile Include="Model\Channel.cs" />
+    <Compile Include="Model\Emoticon.cs" />
+    <Compile Include="Model\Follow.cs" />
+    <Compile Include="Model\Link.cs" />
+    <Compile Include="Model\TwitchList.cs" />
+    <Compile Include="Model\User.cs" />
+    <Compile Include="Model\Video.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

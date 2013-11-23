@@ -1,18 +1,20 @@
-﻿using Twitch.Net.Enums;
+﻿using System.Collections.Generic;
+using Twitch.Net.Enums;
 using Twitch.Net.Helpers;
+using Twitch.Net.Model;
 
 namespace Twitch.Net.Interfaces
 {
-    public interface ITwitchClient
+    interface ITwitchStaticClient
     {
-        dynamic GetUser(string user);        
-        dynamic GetChannel(string channel);
-        dynamic GetChannelVideos(string channel);    
-        dynamic GetChatLinks(string channel);
-        dynamic GetEmoticons();
-        dynamic GetChannelFollowers(string channel, PagingInfo pagingInfo = null);
-        dynamic GetUserFollows(string user, PagingInfo pagingInfo = null);
-        dynamic GetUserFollowingChannel(string user, string channel);
+        User GetUser(string user);
+        Channel GetChannel(string channel);
+        TwitchList<Video> GetChannelVideos(string channel);
+        IEnumerable<Link> GetChatLinks(string channel);
+        TwitchList<Emoticon> GetEmoticons();
+        TwitchList<Follow> GetChannelFollowers(string channel, PagingInfo pagingInfo = null);
+        TwitchList<Follow> GetUserFollows(string user, PagingInfo pagingInfo = null);
+        bool GetUserFollowingChannel(string user, string channel);
         dynamic GetTopGames(PagingInfo pagingInfo = null, bool httpLiveStreaming = false);
         dynamic GetIngests();
         dynamic GetRoot();
