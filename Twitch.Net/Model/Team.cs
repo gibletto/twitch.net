@@ -9,7 +9,7 @@ namespace Twitch.Net.Model
         [DisplayName("_id")]
         public long Id { get; set; }
         [DisplayName("created_at")]
-        public DateTime CreateAt { get; set; }
+        public DateTime CreatedAt { get; set; }
         [DisplayName("updated_at")]
         public DateTime UpdatedAt { get; set; }
         [DisplayName("info")]

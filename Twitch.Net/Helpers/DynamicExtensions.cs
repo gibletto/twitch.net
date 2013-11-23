@@ -33,6 +33,22 @@ namespace Twitch.Net.Helpers
                     var generic = method.MakeGenericMethod(sourceProperty.PropertyType);
                     propertyValue = generic.Invoke(null, new[] {propertyValue});
                 }
+                else if (type == typeof (List<object>))
+                {
+                    var method = typeof (DynamicExtensions).GetMethod("FromDynamic");
+                    var generic = method.MakeGenericMethod(sourceProperty.PropertyType);
+                    var list = propertyValue as List<object>;
+                    if (list != null)
+                    {
+                        foreach (var o in list)
+                        {
+                            var result = generic.Invoke(null, new[] {o});
+                            result = result;
+                        }
+                        var val = list.Select(x => generic.Invoke(null, new[] {x}));
+                        propertyValue = val;
+                    }
+                }
                 bindings.Add(Expression.Bind(sourceProperty, Expression.Constant(propertyValue)));
             }
             Expression memberInit = Expression.MemberInit(Expression.New(typeof(T)), bindings);

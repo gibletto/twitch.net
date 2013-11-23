@@ -24,8 +24,8 @@ namespace Twitch.Net.Interfaces
         dynamic GetStreams(string game = null, string channel = null, PagingInfo info = null, bool embeddableOnly = false, bool httpLiveStreaming = false);
         dynamic GetFeaturedSteams(PagingInfo info = null, bool httpLiveStreaming = false);
         dynamic GetStreamsSummary(PagingInfo info = null, bool httpLiveStreaming = false);
-        dynamic GetTeams();
-        dynamic GetTeam(string team);
+        TwitchList<Team> GetTeams();
+        Team GetTeam(string team);
         dynamic GetVideo(string id);
         dynamic GetTopVideos(string game = null, PagingInfo pagingInfo = null, PeriodType periodType = PeriodType.Week);
     }

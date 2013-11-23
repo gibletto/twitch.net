@@ -168,20 +168,20 @@ namespace Twitch.Net.Tests
         //    Assert.That(streams.channels != null);
         //}
 
-        //[Test]
-        //public void Can_Retrieve_Team()
-        //{
-        //    var team = _twitchClient.GetTeam(_twitchTeam);
-        //    Assert.That(team != null);
-        //    Assert.That(team.name == _twitchTeam);
-        //}
+        [Test]
+        public void Can_Retrieve_Team()
+        {
+            var team = _twitchClient.GetTeam(_twitchTeam);
+            Assert.That(team != null);
+            Assert.That(team.Name == _twitchTeam);
+        }
 
-        //[Test]
-        //public void Can_Retrieve_Teams()
-        //{
-        //    var teams = _twitchClient.GetTeams();
-        //    Assert.That(teams != null);
-        //}
+        [Test]
+        public void Can_Retrieve_Teams()
+        {
+            var teams = _twitchClient.GetTeams();
+            Assert.That(teams != null);
+        }
 
         //[Test]
         //public void Can_Retrieve_Video()

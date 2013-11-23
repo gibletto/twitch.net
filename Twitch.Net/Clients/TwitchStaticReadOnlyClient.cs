@@ -101,14 +101,14 @@ namespace Twitch.Net.Clients
             throw new System.NotImplementedException();
         }
 
-        public dynamic GetTeams()
+        public TwitchList<Team> GetTeams()
         {
-            throw new System.NotImplementedException();
+            return DynamicExtensions.FromDynamic<TwitchList<Team>>(_client.GetTeams());
         }
 
-        public dynamic GetTeam(string team)
+        public Team GetTeam(string team)
         {
-            throw new System.NotImplementedException();
+            return DynamicExtensions.FromDynamic<Team>(_client.GetTeam(team));
         }
 
         public dynamic GetVideo(string id)
