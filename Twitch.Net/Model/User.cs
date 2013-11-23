@@ -17,7 +17,7 @@ namespace Twitch.Net.Model
         [DisplayName("updated_at")]
         public DateTime UpdatedAt { get; set; }
         [DisplayName("_links")]
-        public Link Link { get; set; }
+        public Dictionary<string, object> Links { get; set; }
         [DisplayName("logo")]
         public string Logo { get; set; }
 

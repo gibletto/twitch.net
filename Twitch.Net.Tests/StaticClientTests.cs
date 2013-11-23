@@ -40,13 +40,13 @@ namespace Twitch.Net.Tests
             Assert.That(user.Name == _twitchUser);
         }
 
-        //[Test]
-        //public void Can_Retrieve_Channel()
-        //{
-        //    var channel = _twitchClient.GetChannel(_twitchChannel);
-        //    Assert.That(channel != null);
-        //    Assert.That(channel.name == _twitchChannel);
-        //}
+        [Test]
+        public void Can_Retrieve_Channel()
+        {
+            var channel = _twitchClient.GetChannel(_twitchChannel);
+            Assert.That(channel != null);
+            Assert.That(channel.Name == _twitchChannel);
+        }
 
         //[Test]
         //public void Can_Retrieve_Channel_Videos()

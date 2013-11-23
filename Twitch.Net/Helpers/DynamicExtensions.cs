@@ -10,12 +10,17 @@ namespace Twitch.Net.Helpers
 {
     public static class DynamicExtensions
     {
-        public static T FromDynamic<T>(this ExpandoObject expando)
+        public static T FromDynamic<T>(this ExpandoObject expando) where T : class
         {
             var dictionary = expando.ToDictionary(pair => pair.Key, pair => pair.Value);
             var bindings = new List<MemberBinding>();
             foreach (var sourceProperty in typeof(T).GetProperties().Where(x => x.CanWrite))
             {
+                var displayAttribute = sourceProperty.GetCustomAttribute<DisplayNameAttribute>();
+                if (displayAttribute == null)
+                {
+                    return dictionary as T;
+                }
                 var propertyName = sourceProperty.GetCustomAttribute<DisplayNameAttribute>().DisplayName;
                 var key = dictionary.Keys.FirstOrDefault(x => x == propertyName);
                 if (string.IsNullOrEmpty(key)) continue;

@@ -67,7 +67,7 @@
     <Compile Include="Model\Channel.cs" />
     <Compile Include="Model\Emoticon.cs" />
     <Compile Include="Model\Follow.cs" />
-    <Compile Include="Model\Link.cs" />
+    <Compile Include="Model\Team.cs" />
     <Compile Include="Model\TwitchList.cs" />
     <Compile Include="Model\User.cs" />
     <Compile Include="Model\Video.cs" />

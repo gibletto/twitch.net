@@ -10,7 +10,7 @@ namespace Twitch.Net.Interfaces
         User GetUser(string user);
         Channel GetChannel(string channel);
         TwitchList<Video> GetChannelVideos(string channel);
-        IEnumerable<Link> GetChatLinks(string channel);
+        Dictionary<string, object> GetChatLinks(string channel);
         TwitchList<Emoticon> GetEmoticons();
         TwitchList<Follow> GetChannelFollowers(string channel, PagingInfo pagingInfo = null);
         TwitchList<Follow> GetUserFollows(string user, PagingInfo pagingInfo = null);

@@ -22,7 +22,7 @@ namespace Twitch.Net.Clients
 
         public Channel GetChannel(string channel)
         {
-            throw new System.NotImplementedException();
+            return DynamicExtensions.FromDynamic<Channel>(_client.GetChannel(channel));
         }
 
         public TwitchList<Video> GetChannelVideos(string channel)
@@ -30,7 +30,7 @@ namespace Twitch.Net.Clients
             throw new System.NotImplementedException();
         }
 
-        public IEnumerable<Link> GetChatLinks(string channel)
+        public Dictionary<string, object> GetChatLinks(string channel)
         {
             throw new System.NotImplementedException();
         }
