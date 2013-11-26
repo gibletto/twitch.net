@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel;
 
 namespace Twitch.Net.Model
@@ -8,9 +7,8 @@ namespace Twitch.Net.Model
     {
         [DisplayName("_links")]
         public Dictionary<string,object> Links  { get; set; }
-        [DisplayName("total")]
+        [DisplayName("_total")]
         public long Total { get; set; }
-        [DisplayName("teams")]
-        public T[] List { get; set; } 
+        public IEnumerable<T> List { get; set; } 
     }
 }

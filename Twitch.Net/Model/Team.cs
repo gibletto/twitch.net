@@ -4,6 +4,7 @@ using System.ComponentModel;
 
 namespace Twitch.Net.Model
 {
+    [DisplayName("teams")]
     public class Team
     {
         [DisplayName("_id")]

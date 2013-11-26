@@ -10,18 +10,25 @@ namespace Twitch.Net.Helpers
 {
     public static class DynamicExtensions
     {
-        public static T FromDynamic<T>(this ExpandoObject expando) where T : class
+        public static T FromDynamic<T, TBase>(this ExpandoObject expando) where T : class
         {
             var dictionary = expando.ToDictionary(pair => pair.Key, pair => pair.Value);
             var bindings = new List<MemberBinding>();
             foreach (var sourceProperty in typeof(T).GetProperties().Where(x => x.CanWrite))
             {
+                //If we have generic arguments, see if we have a display name
+                var genericArg = sourceProperty.PropertyType.GetGenericArguments();
                 var displayAttribute = sourceProperty.GetCustomAttribute<DisplayNameAttribute>();
+                if (displayAttribute == null && genericArg.Any())
+                {
+                    displayAttribute = genericArg[0].GetCustomAttribute<DisplayNameAttribute>();
+                }
+                
                 if (displayAttribute == null)
                 {
                     return dictionary as T;
                 }
-                var propertyName = sourceProperty.GetCustomAttribute<DisplayNameAttribute>().DisplayName;
+                var propertyName = displayAttribute.DisplayName;
                 var key = dictionary.Keys.FirstOrDefault(x => x == propertyName);
                 if (string.IsNullOrEmpty(key)) continue;
                 var propertyValue = dictionary[key];
@@ -30,23 +37,27 @@ namespace Twitch.Net.Helpers
                 if (type == typeof (ExpandoObject))
                 {
                     var method = typeof (DynamicExtensions).GetMethod("FromDynamic");
-                    var generic = method.MakeGenericMethod(sourceProperty.PropertyType);
+                    var generic = method.MakeGenericMethod(sourceProperty.PropertyType, sourceProperty.PropertyType);
                     propertyValue = generic.Invoke(null, new[] {propertyValue});
                 }
                 else if (type == typeof (List<object>))
                 {
                     var method = typeof (DynamicExtensions).GetMethod("FromDynamic");
-                    var generic = method.MakeGenericMethod(sourceProperty.PropertyType);
-                    var list = propertyValue as List<object>;
+                    var genericArgument = sourceProperty.PropertyType.GetGenericArguments()[0];
+                    var generic = method.MakeGenericMethod(genericArgument, typeof(TBase));
+                    var list = propertyValue as IEnumerable<object>;
                     if (list != null)
                     {
-                        foreach (var o in list)
+                        if (genericArgument == typeof(TBase))
                         {
-                            var result = generic.Invoke(null, new[] {o});
-                            result = result;
+                            propertyValue = list.Select(x => (TBase) generic.Invoke(null, new[] {x})).ToList();
                         }
-                        var val = list.Select(x => generic.Invoke(null, new[] {x}));
-                        propertyValue = val;
+                        else
+                        {
+                            var castMethod = typeof(DynamicExtensions).GetMethod("ToListOfType");
+                            var genericCast = castMethod.MakeGenericMethod(genericArgument);
+                            propertyValue = genericCast.Invoke(null, new[] {list.Select(x => generic.Invoke(null, new[] {x}))});
+                        }
                     }
                 }
                 bindings.Add(Expression.Bind(sourceProperty, Expression.Constant(propertyValue)));
@@ -55,19 +66,9 @@ namespace Twitch.Net.Helpers
             return Expression.Lambda<Func<T>>(memberInit).Compile().Invoke();
         }
 
-
-
-        public static dynamic ToDynamic<T>(this T obj)
+        public static IEnumerable<T> ToListOfType<T>(IEnumerable<object> list)
         {
-            IDictionary<string, object> expando = new ExpandoObject();
-
-            foreach (var propertyInfo in typeof(T).GetProperties())
-            {
-                var propertyExpression = Expression.Property(Expression.Constant(obj), propertyInfo);
-                var currentValue = Expression.Lambda<Func<string>>(propertyExpression).Compile().Invoke();
-                expando.Add(propertyInfo.Name.ToLower(), currentValue);
-            }
-            return expando as ExpandoObject;
+            return list.Select(x => (T) x).ToList();
         }
     }
 }

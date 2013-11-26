@@ -48,29 +48,26 @@ namespace Twitch.Net.Tests
             Assert.That(channel.Name == _twitchChannel);
         }
 
-        //[Test]
-        //public void Can_Retrieve_Channel_Videos()
-        //{
-        //    var videos = _twitchClient.GetChannelVideos(_twitchChannel);
-        //    Assert.That(videos != null);
-        //    Assert.That(videos.videos != null);
-        //}
+        [Test]
+        public void Can_Retrieve_Channel_Videos()
+        {
+            var videos = _twitchClient.GetChannelVideos("pooksie");
+            Assert.That(videos != null);
+        }
 
-        //[Test]
-        //public void Can_Retrieve_Chat_Links()
-        //{
-        //    var chatLinks = _twitchClient.GetChatLinks(_twitchChannel);
-        //    Assert.That(chatLinks != null);
-        //    Assert.That(chatLinks._links != null);
-        //}
+        [Test]
+        public void Can_Retrieve_Chat_Links()
+        {
+            var chatLinks = _twitchClient.GetChatLinks(_twitchChannel);
+            Assert.That(chatLinks != null);
+        }
 
-        //[Test]
-        //public void Can_Retrieve_Emoticons()
-        //{
-        //    var emoticons = _twitchClient.GetEmoticons();
-        //    Assert.That(emoticons != null);
-        //    Assert.That(emoticons.emoticons != null);
-        //}
+        [Test]
+        public void Can_Retrieve_Emoticons()
+        {
+            var emoticons = _twitchClient.GetEmoticons();
+            Assert.That(emoticons != null);
+        }
 
         //[Test]
         //public void Can_Retrieve_Channel_Followers()
@@ -183,20 +180,20 @@ namespace Twitch.Net.Tests
             Assert.That(teams != null);
         }
 
-        //[Test]
-        //public void Can_Retrieve_Video()
-        //{
-        //    var video = _twitchClient.GetVideo(_twitchVideo);
-        //    Assert.That(video != null);
-        //    Assert.That(video._id == _twitchVideo);
-        //}
+        [Test]
+        public void Can_Retrieve_Video()
+        {
+            var video = _twitchClient.GetVideo(_twitchVideo);
+            Assert.That(video != null);
+            Assert.That(video.Id == _twitchVideo);
+        }
 
-        //[Test]
-        //public void Can_Retrieve_Videos()
-        //{
-        //    var videos = _twitchClient.GetTopVideos();
-        //    Assert.That(videos != null);
-        //}
+        [Test]
+        public void Can_Retrieve_Videos()
+        {
+            var videos = _twitchClient.GetTopVideos();
+            Assert.That(videos != null);
+        }
 
     }
 }

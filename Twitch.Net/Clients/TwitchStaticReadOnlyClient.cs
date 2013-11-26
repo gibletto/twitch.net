@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using Twitch.Net.Enums;
+﻿using Twitch.Net.Enums;
 using Twitch.Net.Helpers;
 using Twitch.Net.Interfaces;
 using Twitch.Net.Model;
@@ -17,27 +16,27 @@ namespace Twitch.Net.Clients
 
         public User GetUser(string user)
         {
-            return DynamicExtensions.FromDynamic<User>(_client.GetUser(user));
+            return DynamicExtensions.FromDynamic<User, User>(_client.GetUser(user));
         }
 
         public Channel GetChannel(string channel)
         {
-            return DynamicExtensions.FromDynamic<Channel>(_client.GetChannel(channel));
+            return DynamicExtensions.FromDynamic<Channel, Channel>(_client.GetChannel(channel));
         }
 
-        public TwitchList<Video> GetChannelVideos(string channel)
+        public TwitchList<Video> GetChannelVideos(string channel, PagingInfo pagingInfo = null, bool onlyBroadcasts = false)
         {
-            throw new System.NotImplementedException();
+            return DynamicExtensions.FromDynamic<TwitchList<Video>, Video>(_client.GetChannelVideos(channel, pagingInfo, onlyBroadcasts));
         }
 
-        public Dictionary<string, object> GetChatLinks(string channel)
+        public ChatLinks GetChatLinks(string channel)
         {
-            throw new System.NotImplementedException();
+            return DynamicExtensions.FromDynamic<ChatLinks, ChatLinks>(_client.GetChatLinks(channel));
         }
 
         public TwitchList<Emoticon> GetEmoticons()
         {
-            throw new System.NotImplementedException();
+            return DynamicExtensions.FromDynamic<TwitchList<Emoticon>, Emoticon>(_client.GetEmoticons());
         }
 
         public TwitchList<Follow> GetChannelFollowers(string channel, PagingInfo pagingInfo = null)
@@ -103,22 +102,22 @@ namespace Twitch.Net.Clients
 
         public TwitchList<Team> GetTeams()
         {
-            return DynamicExtensions.FromDynamic<TwitchList<Team>>(_client.GetTeams());
+            return DynamicExtensions.FromDynamic<TwitchList<Team>, Team>(_client.GetTeams());
         }
 
         public Team GetTeam(string team)
         {
-            return DynamicExtensions.FromDynamic<Team>(_client.GetTeam(team));
+            return DynamicExtensions.FromDynamic<Team, Team>(_client.GetTeam(team));
         }
 
-        public dynamic GetVideo(string id)
+        public Video GetVideo(string id)
         {
-            throw new System.NotImplementedException();
+            return DynamicExtensions.FromDynamic<Video, Video>(_client.GetVideo(id));
         }
 
-        public dynamic GetTopVideos(string game = null, PagingInfo pagingInfo = null, PeriodType periodType = PeriodType.Week)
+        public TwitchList<Video> GetTopVideos(string game = null, PagingInfo pagingInfo = null, PeriodType periodType = PeriodType.Week)
         {
-            throw new System.NotImplementedException();
+            return DynamicExtensions.FromDynamic<TwitchList<Video>, Video>(_client.GetTopVideos(game, pagingInfo, periodType));
         }
     }
 }

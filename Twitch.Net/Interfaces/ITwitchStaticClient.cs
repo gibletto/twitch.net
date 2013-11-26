@@ -9,8 +9,8 @@ namespace Twitch.Net.Interfaces
     {
         User GetUser(string user);
         Channel GetChannel(string channel);
-        TwitchList<Video> GetChannelVideos(string channel);
-        Dictionary<string, object> GetChatLinks(string channel);
+        TwitchList<Video> GetChannelVideos(string channel, PagingInfo pagingInfo = null, bool onlyBroadcasts = false);
+        ChatLinks GetChatLinks(string channel);
         TwitchList<Emoticon> GetEmoticons();
         TwitchList<Follow> GetChannelFollowers(string channel, PagingInfo pagingInfo = null);
         TwitchList<Follow> GetUserFollows(string user, PagingInfo pagingInfo = null);
@@ -26,7 +26,7 @@ namespace Twitch.Net.Interfaces
         dynamic GetStreamsSummary(PagingInfo info = null, bool httpLiveStreaming = false);
         TwitchList<Team> GetTeams();
         Team GetTeam(string team);
-        dynamic GetVideo(string id);
-        dynamic GetTopVideos(string game = null, PagingInfo pagingInfo = null, PeriodType periodType = PeriodType.Week);
+        Video GetVideo(string id);
+        TwitchList<Video> GetTopVideos(string game = null, PagingInfo pagingInfo = null, PeriodType periodType = PeriodType.Week);
     }
 }

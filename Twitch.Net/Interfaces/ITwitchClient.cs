@@ -7,7 +7,7 @@ namespace Twitch.Net.Interfaces
     {
         dynamic GetUser(string user);        
         dynamic GetChannel(string channel);
-        dynamic GetChannelVideos(string channel);    
+        dynamic GetChannelVideos(string channel, PagingInfo info = null, bool onlyBroadcasts = false);    
         dynamic GetChatLinks(string channel);
         dynamic GetEmoticons();
         dynamic GetChannelFollowers(string channel, PagingInfo pagingInfo = null);

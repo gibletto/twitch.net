@@ -35,6 +35,6 @@ namespace Twitch.Net.Model
         [DisplayName("_links")]
         public Dictionary<string, object> Links { get; set; } 
         [DisplayName("teams")]
-        public IEnumerable<Team> Teams { get; set; }       
+        public List<Team> Teams { get; set; }       
     }
 }

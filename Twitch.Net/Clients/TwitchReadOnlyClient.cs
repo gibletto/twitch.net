@@ -34,10 +34,12 @@ namespace Twitch.Net.Clients
             return response.Data;
         }
 
-        public dynamic GetChannelVideos(string channel)
+        public dynamic GetChannelVideos(string channel, PagingInfo pagingInfo = null, bool onlyBroadcasts = false)
         {
             var request = _requestFactory("channels/{channel}/videos", Method.GET);
             request.AddUrlSegment("channel", channel);
+            AddPaging(request, pagingInfo);
+            request.AddParameter("broadcasts", onlyBroadcasts);
             var response = _restClient.Execute<ExpandoObject>(request);
             return response.Data;
         }
