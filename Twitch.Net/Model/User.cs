@@ -4,7 +4,7 @@ using System.ComponentModel;
 
 namespace Twitch.Net.Model
 {
-    public class User
+    public class User : TwitchBase
     {
         [DisplayName("name")]
         public string Name { get; set; }

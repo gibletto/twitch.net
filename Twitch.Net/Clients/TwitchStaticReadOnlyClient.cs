@@ -41,63 +41,63 @@ namespace Twitch.Net.Clients
 
         public TwitchList<Follow> GetChannelFollowers(string channel, PagingInfo pagingInfo = null)
         {
-            throw new System.NotImplementedException();
+            return DynamicExtensions.FromDynamic<TwitchList<Follow>, Follow>(_client.GetChannelFollowers(channel, pagingInfo));
         }
 
         public TwitchList<Follow> GetUserFollows(string user, PagingInfo pagingInfo = null)
         {
-            throw new System.NotImplementedException();
+            return DynamicExtensions.FromDynamic<TwitchList<Follow>, Follow>(_client.GetUserFollows(user, pagingInfo));
         }
 
-        public bool GetUserFollowingChannel(string user, string channel)
+        public Follow GetUserFollowingChannel(string user, string channel)
         {
-            throw new System.NotImplementedException();
+            return DynamicExtensions.FromDynamic<Follow, Follow>(_client.GetUserFollowingChannel(user, channel));
         }
 
-        public dynamic GetTopGames(PagingInfo pagingInfo = null, bool httpLiveStreaming = false)
+        public TwitchList<TopGame> GetTopGames(PagingInfo pagingInfo = null, bool httpLiveStreaming = false)
         {
-            throw new System.NotImplementedException();
+            return DynamicExtensions.FromDynamic<TwitchList<TopGame>, TopGame>(_client.GetTopGames(pagingInfo, httpLiveStreaming));
         }
 
-        public dynamic GetIngests()
+        public TwitchList<Ingest> GetIngests()
         {
-            throw new System.NotImplementedException();
+            return DynamicExtensions.FromDynamic<TwitchList<Ingest>, Ingest>(_client.GetIngests());
         }
 
-        public dynamic GetRoot()
+        public RootResult GetRoot()
         {
-            throw new System.NotImplementedException();
+            return DynamicExtensions.FromDynamic<RootResult, RootResult>(_client.GetRoot());
         }
 
-        public dynamic SearchStreams(string query, PagingInfo info = null)
+        public TwitchList<Stream> SearchStreams(string query, PagingInfo info = null)
         {
-            throw new System.NotImplementedException();
+            return DynamicExtensions.FromDynamic<TwitchList<Stream>, Stream>(_client.SearchStreams(query, info));
         }
 
-        public dynamic SearchGames(string query, SearchType searchType = SearchType.Suggest, bool live = false)
+        public TwitchList<Game> SearchGames(string query, SearchType searchType = SearchType.Suggest, bool live = false)
         {
-            throw new System.NotImplementedException();
+            return DynamicExtensions.FromDynamic<TwitchList<Game>, Game>(_client.SearchGames(query, searchType, live));
         }
 
-        public dynamic GetStream(string channel)
+        public StreamResult GetStream(string channel)
         {
-            throw new System.NotImplementedException();
+            return DynamicExtensions.FromDynamic<StreamResult,StreamResult>(_client.GetStream(channel));
         }
 
-        public dynamic GetStreams(string game = null, string channel = null, PagingInfo info = null, bool embeddableOnly = false,
+        public TwitchList<Stream> GetStreams(string game = null, string channel = null, PagingInfo info = null, bool embeddableOnly = false,
             bool httpLiveStreaming = false)
         {
-            throw new System.NotImplementedException();
+            return DynamicExtensions.FromDynamic<TwitchList<Stream>, Stream>(_client.GetStreams(game,channel,info,embeddableOnly,httpLiveStreaming));
         }
 
-        public dynamic GetFeaturedSteams(PagingInfo info = null, bool httpLiveStreaming = false)
+        public FeaturedResult GetFeaturedSteams(PagingInfo info = null, bool httpLiveStreaming = false)
         {
-            throw new System.NotImplementedException();
+            return DynamicExtensions.FromDynamic<FeaturedResult, FeaturedResult>(_client.GetFeaturedSteams(info, httpLiveStreaming));
         }
 
-        public dynamic GetStreamsSummary(PagingInfo info = null, bool httpLiveStreaming = false)
+        public StreamSummary GetStreamSummary()
         {
-            throw new System.NotImplementedException();
+            return DynamicExtensions.FromDynamic<StreamSummary, StreamSummary>(_client.GetStreamSummary());
         }
 
         public TwitchList<Team> GetTeams()

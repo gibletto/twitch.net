@@ -3,7 +3,7 @@ using System.ComponentModel;
 
 namespace Twitch.Net.Model
 {
-    public class TwitchList<T>
+    public class TwitchList<T> : TwitchBase
     {
         [DisplayName("_links")]
         public Dictionary<string,object> Links  { get; set; }

@@ -60,7 +60,8 @@ namespace Twitch.Net.Helpers
                         }
                     }
                 }
-                bindings.Add(Expression.Bind(sourceProperty, Expression.Constant(propertyValue)));
+                if(propertyValue != null)
+                    bindings.Add(Expression.Bind(sourceProperty, Expression.Constant(propertyValue)));
             }
             Expression memberInit = Expression.MemberInit(Expression.New(typeof(T)), bindings);
             return Expression.Lambda<Func<T>>(memberInit).Compile().Invoke();

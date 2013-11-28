@@ -21,7 +21,7 @@ namespace Twitch.Net.Interfaces
         dynamic GetStream(string channel);
         dynamic GetStreams(string game = null, string channel = null, PagingInfo info = null, bool embeddableOnly = false, bool httpLiveStreaming = false);
         dynamic GetFeaturedSteams(PagingInfo info = null, bool httpLiveStreaming = false);
-        dynamic GetStreamsSummary(PagingInfo info = null, bool httpLiveStreaming = false);
+        dynamic GetStreamSummary();
         dynamic GetTeams();
         dynamic GetTeam(string team);
         dynamic GetVideo(string id);

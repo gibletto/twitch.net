@@ -5,7 +5,7 @@ using System.ComponentModel;
 namespace Twitch.Net.Model
 {
     [DisplayName("teams")]
-    public class Team
+    public class Team : TwitchBase
     {
         [DisplayName("_id")]
         public long Id { get; set; }

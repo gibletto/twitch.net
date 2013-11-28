@@ -4,7 +4,7 @@ using System.ComponentModel;
 
 namespace Twitch.Net.Model
 {
-    public class Channel
+    public class Channel : TwitchBase
     {
         [DisplayName("_id")]
         public long Id { get; set; }

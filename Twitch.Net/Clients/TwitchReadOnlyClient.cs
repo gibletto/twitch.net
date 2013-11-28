@@ -105,6 +105,7 @@ namespace Twitch.Net.Clients
         public dynamic GetRoot()
         {
             var request = _requestFactory("/", Method.GET);
+            request.AddParameter("oauth_token", "jtpazxz77je7hz97g8jo00noocbj6y2");
             var response = _restClient.Execute<ExpandoObject>(request);
             return response.Data;
         }
@@ -138,8 +139,8 @@ namespace Twitch.Net.Clients
         public dynamic GetStreams(string game = null, string channel = null, PagingInfo pagingInfo = null, bool embeddableOnly = false, bool httpLiveStreaming = false)
         {
             var request = _requestFactory("streams", Method.GET);
-            request.AddParameter("game", game);
-            request.AddParameter("channel", game);
+            request.AddSafeParameter("game", game);
+            request.AddSafeParameter("channel", channel);
             AddPaging(request, pagingInfo);
             request.AddParameter("embeddable", embeddableOnly);
             request.AddParameter("hls", httpLiveStreaming);
@@ -156,11 +157,9 @@ namespace Twitch.Net.Clients
             return response.Data;
         }
 
-        public dynamic GetStreamsSummary(PagingInfo pagingInfo = null, bool httpLiveStreaming = false)
+        public dynamic GetStreamSummary()
         {
             var request = _requestFactory("streams/summary", Method.GET);
-            AddPaging(request, pagingInfo);
-            request.AddParameter("hls", httpLiveStreaming);
             var response = _restClient.Execute<ExpandoObject>(request);
             return response.Data;
         }
@@ -191,6 +190,9 @@ namespace Twitch.Net.Clients
         public dynamic GetTopVideos(string game = null, PagingInfo pagingInfo = null, PeriodType periodType = PeriodType.Week)
         {
             var request = _requestFactory("videos/top", Method.GET);
+            AddPaging(request, pagingInfo);
+            request.AddSafeParameter("game", game);
+            request.AddParameter("period", periodType);
             var response = _restClient.Execute<ExpandoObject>(request);
             return response.Data;
         }
