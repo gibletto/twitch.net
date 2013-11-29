@@ -52,6 +52,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Integration\DynamicAuthenticatedClientTests.cs" />
     <Compile Include="Integration\DynamicClientTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Integration\StaticClientTests.cs" />

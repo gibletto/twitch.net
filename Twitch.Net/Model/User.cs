@@ -20,6 +20,8 @@ namespace Twitch.Net.Model
         public Dictionary<string, object> Links { get; set; }
         [JsonProperty("logo")]
         public string Logo { get; set; }
+        [JsonProperty("staff")]
+        public bool Staff { get; set; }
 
     }
 }

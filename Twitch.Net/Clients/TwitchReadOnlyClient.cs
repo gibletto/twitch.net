@@ -301,11 +301,14 @@ namespace Twitch.Net.Clients
             return response.Data;
         }
 
-        private void AddPaging(IRestRequest request, PagingInfo pagingInfo)
+        protected void AddPaging(IRestRequest request, PagingInfo pagingInfo)
         {
             if (pagingInfo == null) return;
             request.AddParameter("limit", pagingInfo.PageSize);
             request.AddParameter("offset", pagingInfo.Page - 1);
         }
+
+        protected IRestClient RestClient { get {  return _restClient; } }
+        protected Func<string, Method, IRestRequest> RequestFactory { get { return _requestFactory; } }
     }
 }

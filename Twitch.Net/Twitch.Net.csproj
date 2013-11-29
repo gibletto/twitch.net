@@ -52,6 +52,7 @@
     <Compile Include="Clients\TwitchAuthenticatedClient.cs" />
     <Compile Include="Clients\TwitchReadOnlyClient.cs" />
     <Compile Include="Clients\TwitchStaticReadOnlyClient.cs" />
+    <Compile Include="Enums\CommercialLength.cs" />
     <Compile Include="Enums\PeriodType.cs" />
     <Compile Include="Enums\SearchType.cs" />
     <Compile Include="Factories\TwitchClientFactory.cs" />
@@ -59,6 +60,7 @@
     <Compile Include="Helpers\PagingInfo.cs" />
     <Compile Include="Helpers\RequestExtensions.cs" />
     <Compile Include="Helpers\TwitchListConverter.cs" />
+    <Compile Include="Interfaces\IAuthenticatedClient.Generic.cs" />
     <Compile Include="Interfaces\IPagedList.cs" />
     <Compile Include="Helpers\PagedList.cs" />
     <Compile Include="Interfaces\IAuthenticatedTwitchClient.cs" />
@@ -67,6 +69,8 @@
     <Compile Include="Interfaces\ITwitchClientFactory.cs" />
     <Compile Include="Interfaces\ITwitchStaticClient.cs" />
     <Compile Include="Model\Authorization.cs" />
+    <Compile Include="Model\Block.cs" />
+    <Compile Include="Model\BlockResult.cs" />
     <Compile Include="Model\Channel.cs" />
     <Compile Include="Model\ChatLinks.cs" />
     <Compile Include="Model\Emoticon.cs" />

@@ -16,7 +16,7 @@ namespace Twitch.MVCFrontEnd.Infrastructure.Autofac
             builder.Register<Func<string, Method, IRestRequest>>(c => (uri, method) =>
                                                                       {
                                                                           var request = new RestRequest(uri, method);
-                                                                          //Add any client or auth tokens here.
+                                                                          //Add any client or auth tokens here
                                                                           //request.AddHeader("Client-ID", "");
                                                                           //request.AddHeader("Authorization", string.Format("OAuth {0}", "oauth-token"));
                                                                           return request;
