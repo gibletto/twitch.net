@@ -7,7 +7,7 @@ using Twitch.Net.Interfaces;
 
 namespace Twitch.Net.Clients
 {
-    public class TwitchReadOnlyClient : ITwitchClient, ITwitchClientGeneric
+    internal class TwitchReadOnlyClient : ITwitchClient, ITwitchClientGeneric
     {
         private readonly IRestClient _restClient;
         private readonly Func<string, Method, IRestRequest> _requestFactory;

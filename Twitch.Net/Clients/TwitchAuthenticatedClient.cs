@@ -7,7 +7,7 @@ using Twitch.Net.Interfaces;
 
 namespace Twitch.Net.Clients
 {
-    class TwitchAuthenticatedClient : TwitchReadOnlyClient, IAuthenticatedTwitchClient, IAuthenticatedClientGeneric
+    internal class TwitchAuthenticatedClient : TwitchReadOnlyClient, IAuthenticatedTwitchClient, IAuthenticatedClientGeneric
     {
         public TwitchAuthenticatedClient(IRestClient restClient, Func<string, Method, IRestRequest> requestFactory) : base(restClient, requestFactory)
         {

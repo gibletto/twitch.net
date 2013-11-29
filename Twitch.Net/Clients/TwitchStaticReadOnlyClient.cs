@@ -5,7 +5,7 @@ using Twitch.Net.Model;
 
 namespace Twitch.Net.Clients
 {
-    public class TwitchStaticReadOnlyClient : ITwitchStaticClient
+    internal class TwitchStaticReadOnlyClient : ITwitchStaticClient
     {
         private readonly ITwitchClientGeneric _client;
 
