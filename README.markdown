@@ -5,4 +5,4 @@
 ### Features
 
 * Support for v2 of the Twitch.tv REST api
-* Uses dynamic objects or strongly typed objects (coming soon).
+* Uses dynamic objects or strongly typed objects.
