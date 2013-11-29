@@ -8,5 +8,6 @@ namespace Twitch.Net.Interfaces
     {
         ITwitchStaticClient CreateStaticReadonlyClient(IRestClient restClient, Func<string, Method, IRestRequest> requestFactory);
         ITwitchClient CreateDynamicReadonlyClient(IRestClient restClient, Func<string, Method, IRestRequest> requestFactory);
+        ITwitchClient CreateDynamicAuthenticatedClient(IRestClient restClient, Func<string, Method, IRestRequest> requestFactory);
     }
 }

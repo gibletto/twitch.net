@@ -16,5 +16,10 @@ namespace Twitch.Net.Factories
         {
             return new TwitchReadOnlyClient(restClient, requestFactory);
         }
+
+        public ITwitchClient CreateDynamicAuthenticatedClient(IRestClient restClient, Func<string, Method, IRestRequest> requestFactory)
+        {
+            return new TwitchAuthenticatedClient(restClient, requestFactory);
+        }
     }
 }

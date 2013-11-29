@@ -3,7 +3,7 @@ using Twitch.Net.Helpers;
 
 namespace Twitch.Net.Interfaces
 {
-    public interface IAuthenticatedTwitchClient
+    public interface IAuthenticatedTwitchClient : ITwitchClient
     {
         dynamic GetUserBlocks(string user, PagingInfo pagingInfo = null);
         dynamic BlockUser(string myUser, string userToBlock);
