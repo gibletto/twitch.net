@@ -19,7 +19,7 @@ namespace Twitch.Net.Interfaces
         TwitchList<Ingest> GetIngests();
         RootResult GetRoot();
         TwitchList<Stream> SearchStreams(string query, PagingInfo info = null);
-        TwitchList<Game> SearchGames(string query, SearchType searchType = SearchType.Suggest, bool live = false);
+        TwitchList<Game> SearchGames(string query, SearchType searchType = SearchType.suggest, bool live = false);
         StreamResult GetStream(string channel);
         TwitchList<Stream> GetStreams(string game = null, string channel = null, PagingInfo info = null, bool embeddableOnly = false, bool httpLiveStreaming = false);
         FeaturedResult GetFeaturedSteams(PagingInfo info = null, bool httpLiveStreaming = false);
@@ -27,6 +27,6 @@ namespace Twitch.Net.Interfaces
         TwitchList<Team> GetTeams();
         Team GetTeam(string team);
         Video GetVideo(string id);
-        TwitchList<Video> GetTopVideos(string game = null, PagingInfo pagingInfo = null, PeriodType periodType = PeriodType.Week);
+        TwitchList<Video> GetTopVideos(string game = null, PagingInfo pagingInfo = null, PeriodType periodType = PeriodType.week);
     }
 }

@@ -1,24 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
+using Newtonsoft.Json;
 
 namespace Twitch.Net.Model
 {
     public class User : TwitchBase
     {
-        [DisplayName("name")]
+        [JsonProperty("name")]
         public string Name { get; set; }
-        [DisplayName("display_name")]
+        [JsonProperty("display_name")]
         public string DisplayName { get; set; }
-        [DisplayName("_id")]
+        [JsonProperty("_id")]
         public long Id { get; set; }
-        [DisplayName("created_at")]
+        [JsonProperty("created_at")]
         public DateTime CreatedAt { get; set; }
-        [DisplayName("updated_at")]
+        [JsonProperty("updated_at")]
         public DateTime UpdatedAt { get; set; }
-        [DisplayName("_links")]
+        [JsonProperty("_links")]
         public Dictionary<string, object> Links { get; set; }
-        [DisplayName("logo")]
+        [JsonProperty("logo")]
         public string Logo { get; set; }
 
     }

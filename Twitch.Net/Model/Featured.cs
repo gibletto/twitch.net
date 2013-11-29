@@ -1,14 +1,14 @@
-﻿using System.ComponentModel;
+﻿using Newtonsoft.Json;
 
 namespace Twitch.Net.Model
 {
     public class Featured
     {
-        [DisplayName("image")]
+        [JsonProperty("image")]
         public string Image { get; set; }
-        [DisplayName("text")]
+        [JsonProperty("text")]
         public string Text { get; set; }
-        [DisplayName("stream")]
+        [JsonProperty("stream")]
         public Stream Stream { get; set; }
     }
 }

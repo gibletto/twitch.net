@@ -1,14 +1,14 @@
 ﻿using System.Collections.Generic;
-using System.ComponentModel;
+using Newtonsoft.Json;
 
 namespace Twitch.Net.Model
 {
-    [DisplayName("emoticons")]
+    [JsonObject("emoticons")]
     public class Emoticon
     {
-        [DisplayName("regex")]
+        [JsonProperty("regex")]
         public string Regex { get; set; }
-        [DisplayName("images")]
+        [JsonProperty("images")]
         public IEnumerable<Image> Images { get; set; }
     }
 }

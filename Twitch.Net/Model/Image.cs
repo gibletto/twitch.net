@@ -1,16 +1,16 @@
-﻿using System.ComponentModel;
+﻿using Newtonsoft.Json;
 
 namespace Twitch.Net.Model
 {
     public class Image
     {
-        [DisplayName("emoticon_set")]
+        [JsonProperty("emoticon_set")]
         public long EmoticonSet { get; set; }
-        [DisplayName("height")]
+        [JsonProperty("height")]
         public long Height { get; set; }
-        [DisplayName("width")]
+        [JsonProperty("width")]
         public long Width { get; set; }
-        [DisplayName("url")]
+        [JsonProperty("url")]
         public string Url { get; set; }
     }
 }

@@ -1,15 +1,16 @@
 ﻿using System;
-using System.ComponentModel;
+using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace Twitch.Net.Model
 {
     public class Authorization
     {
-        [DisplayName("created_at")]
+        [JsonProperty("created_at")]
         public DateTime CreatedAt { get; set; }
-        [DisplayName("updated_at")]
+        [JsonProperty("updated_at")]
         public DateTime UpdatedAt { get; set; }
-        [DisplayName("scopes")]
-        public string[] Scopes { get; set; }
+        [JsonProperty("scopes")]
+        public IEnumerable<string> Scopes { get; set; }
     }
 }

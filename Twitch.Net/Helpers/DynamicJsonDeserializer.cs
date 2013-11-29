@@ -12,7 +12,7 @@ namespace Twitch.Net.Helpers
 
         public T Deserialize<T>(IRestResponse response)
         {
-            return JsonConvert.DeserializeObject<T>(response.Content);
+            return JsonConvert.DeserializeObject<T>(response.Content,new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[]{new TwitchListConverter() }});
         }
     }
 }

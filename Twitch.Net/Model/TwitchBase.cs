@@ -1,13 +1,12 @@
-﻿using System.ComponentModel;
-
+﻿using Newtonsoft.Json;
 
 namespace Twitch.Net.Model
 {
     public abstract class TwitchBase
     {
-        [DisplayName("error")]
+        [JsonProperty("error")]
         public string Error { get; set; }
-        [DisplayName("message")]
+        [JsonProperty("message")]
         public string Message { get; set; }
     }
 }

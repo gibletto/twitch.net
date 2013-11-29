@@ -1,13 +1,13 @@
 ﻿using System.Collections.Generic;
-using System.ComponentModel;
+using Newtonsoft.Json;
 
 namespace Twitch.Net.Model
 {
     public class FeaturedResult
     {
-        [DisplayName("_links")]
+        [JsonProperty("_links")]
         public Dictionary<string, object> Links { get; set; }
-        [DisplayName("featured")]
+        [JsonProperty("featured")]
         public IEnumerable<Featured> Featured { get; set; }
     }
 }

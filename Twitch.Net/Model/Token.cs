@@ -1,14 +1,15 @@
 ﻿using System.ComponentModel;
+using Newtonsoft.Json;
 
 namespace Twitch.Net.Model
 {
     public class Token
     {
-        [DisplayName("authorization")]
+        [JsonProperty("authorization")]
         public Authorization Authorization { get; set; }
-        [DisplayName("user_name")]
+        [JsonProperty("user_name")]
         public string UserName { get; set; }
-        [DisplayName("valid")]
+        [JsonProperty("valid")]
         public bool Valid { get; set; }
     }
 }

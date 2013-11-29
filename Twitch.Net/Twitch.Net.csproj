@@ -55,14 +55,15 @@
     <Compile Include="Enums\ClientType.cs" />
     <Compile Include="Enums\PeriodType.cs" />
     <Compile Include="Enums\SearchType.cs" />
-    <Compile Include="Helpers\DynamicExtensions.cs" />
     <Compile Include="Helpers\DynamicJsonDeserializer.cs" />
     <Compile Include="Helpers\PagingInfo.cs" />
     <Compile Include="Helpers\RequestExtensions.cs" />
+    <Compile Include="Helpers\TwitchListConverter.cs" />
     <Compile Include="Interfaces\IPagedList.cs" />
     <Compile Include="Helpers\PagedList.cs" />
     <Compile Include="Interfaces\IAuthenticatedTwitchClient.cs" />
     <Compile Include="Interfaces\ITwitchClient.cs" />
+    <Compile Include="Interfaces\ITwitchClient.Generic.cs" />
     <Compile Include="Interfaces\ITwitchClientFactory.cs" />
     <Compile Include="Interfaces\ITwitchStaticClient.cs" />
     <Compile Include="Model\Authorization.cs" />
@@ -84,6 +85,7 @@
     <Compile Include="Model\TopGame.cs" />
     <Compile Include="Model\TwitchBase.cs" />
     <Compile Include="Model\TwitchList.cs" />
+    <Compile Include="Model\TwitchListBase.cs" />
     <Compile Include="Model\User.cs" />
     <Compile Include="Model\Video.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

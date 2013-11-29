@@ -7,117 +7,117 @@ namespace Twitch.Net.Clients
 {
     public class TwitchStaticReadOnlyClient : ITwitchStaticClient
     {
-        private readonly ITwitchClient _client;
+        private readonly ITwitchClientGeneric _client;
 
-        public TwitchStaticReadOnlyClient(ITwitchClient client)
+        internal TwitchStaticReadOnlyClient(ITwitchClientGeneric client)
         {
             _client = client;
         }
 
         public User GetUser(string user)
         {
-            return DynamicExtensions.FromDynamic<User, User>(_client.GetUser(user));
+            return _client.GetUser<User>(user);
         }
 
         public Channel GetChannel(string channel)
         {
-            return DynamicExtensions.FromDynamic<Channel, Channel>(_client.GetChannel(channel));
+            return _client.GetChannel<Channel>(channel);
         }
 
         public TwitchList<Video> GetChannelVideos(string channel, PagingInfo pagingInfo = null, bool onlyBroadcasts = false)
         {
-            return DynamicExtensions.FromDynamic<TwitchList<Video>, Video>(_client.GetChannelVideos(channel, pagingInfo, onlyBroadcasts));
+            return _client.GetChannelVideos<TwitchList<Video>>(channel, pagingInfo, onlyBroadcasts);
         }
 
         public ChatLinks GetChatLinks(string channel)
         {
-            return DynamicExtensions.FromDynamic<ChatLinks, ChatLinks>(_client.GetChatLinks(channel));
+            return _client.GetChatLinks<ChatLinks>(channel);
         }
 
         public TwitchList<Emoticon> GetEmoticons()
         {
-            return DynamicExtensions.FromDynamic<TwitchList<Emoticon>, Emoticon>(_client.GetEmoticons());
+            return _client.GetEmoticons<TwitchList<Emoticon>>();
         }
 
         public TwitchList<Follow> GetChannelFollowers(string channel, PagingInfo pagingInfo = null)
         {
-            return DynamicExtensions.FromDynamic<TwitchList<Follow>, Follow>(_client.GetChannelFollowers(channel, pagingInfo));
+            return _client.GetChannelFollowers<TwitchList<Follow>>(channel, pagingInfo);
         }
 
         public TwitchList<Follow> GetUserFollows(string user, PagingInfo pagingInfo = null)
         {
-            return DynamicExtensions.FromDynamic<TwitchList<Follow>, Follow>(_client.GetUserFollows(user, pagingInfo));
+            return _client.GetUserFollows<TwitchList<Follow>>(user, pagingInfo);
         }
 
         public Follow GetUserFollowingChannel(string user, string channel)
         {
-            return DynamicExtensions.FromDynamic<Follow, Follow>(_client.GetUserFollowingChannel(user, channel));
+            return _client.GetUserFollowingChannel<Follow>(user, channel);
         }
 
         public TwitchList<TopGame> GetTopGames(PagingInfo pagingInfo = null, bool httpLiveStreaming = false)
         {
-            return DynamicExtensions.FromDynamic<TwitchList<TopGame>, TopGame>(_client.GetTopGames(pagingInfo, httpLiveStreaming));
+            return _client.GetTopGames<TwitchList<TopGame>>(pagingInfo, httpLiveStreaming);
         }
 
         public TwitchList<Ingest> GetIngests()
         {
-            return DynamicExtensions.FromDynamic<TwitchList<Ingest>, Ingest>(_client.GetIngests());
+            return _client.GetIngests<TwitchList<Ingest>>();
         }
 
         public RootResult GetRoot()
         {
-            return DynamicExtensions.FromDynamic<RootResult, RootResult>(_client.GetRoot());
+            return _client.GetRoot<RootResult>();
         }
 
         public TwitchList<Stream> SearchStreams(string query, PagingInfo info = null)
         {
-            return DynamicExtensions.FromDynamic<TwitchList<Stream>, Stream>(_client.SearchStreams(query, info));
+            return _client.SearchStreams<TwitchList<Stream>>(query, info);
         }
 
-        public TwitchList<Game> SearchGames(string query, SearchType searchType = SearchType.Suggest, bool live = false)
+        public TwitchList<Game> SearchGames(string query, SearchType searchType = SearchType.suggest, bool live = false)
         {
-            return DynamicExtensions.FromDynamic<TwitchList<Game>, Game>(_client.SearchGames(query, searchType, live));
+            return _client.SearchGames<TwitchList<Game>>(query, searchType, live);
         }
 
         public StreamResult GetStream(string channel)
         {
-            return DynamicExtensions.FromDynamic<StreamResult,StreamResult>(_client.GetStream(channel));
+            return _client.GetStream<StreamResult>(channel);
         }
 
         public TwitchList<Stream> GetStreams(string game = null, string channel = null, PagingInfo info = null, bool embeddableOnly = false,
             bool httpLiveStreaming = false)
         {
-            return DynamicExtensions.FromDynamic<TwitchList<Stream>, Stream>(_client.GetStreams(game,channel,info,embeddableOnly,httpLiveStreaming));
+            return _client.GetStreams<TwitchList<Stream>>(game, channel, info, embeddableOnly, httpLiveStreaming);
         }
 
         public FeaturedResult GetFeaturedSteams(PagingInfo info = null, bool httpLiveStreaming = false)
         {
-            return DynamicExtensions.FromDynamic<FeaturedResult, FeaturedResult>(_client.GetFeaturedSteams(info, httpLiveStreaming));
+            return _client.GetFeaturedSteams<FeaturedResult>(info, httpLiveStreaming);
         }
 
         public StreamSummary GetStreamSummary()
         {
-            return DynamicExtensions.FromDynamic<StreamSummary, StreamSummary>(_client.GetStreamSummary());
+            return _client.GetStreamSummary<StreamSummary>();
         }
 
         public TwitchList<Team> GetTeams()
         {
-            return DynamicExtensions.FromDynamic<TwitchList<Team>, Team>(_client.GetTeams());
+            return _client.GetTeams<TwitchList<Team>>();
         }
 
         public Team GetTeam(string team)
         {
-            return DynamicExtensions.FromDynamic<Team, Team>(_client.GetTeam(team));
+            return _client.GetTeam<Team>(team);
         }
 
         public Video GetVideo(string id)
         {
-            return DynamicExtensions.FromDynamic<Video, Video>(_client.GetVideo(id));
+            return _client.GetVideo<Video>(id);
         }
 
-        public TwitchList<Video> GetTopVideos(string game = null, PagingInfo pagingInfo = null, PeriodType periodType = PeriodType.Week)
+        public TwitchList<Video> GetTopVideos(string game = null, PagingInfo pagingInfo = null, PeriodType periodType = PeriodType.week)
         {
-            return DynamicExtensions.FromDynamic<TwitchList<Video>, Video>(_client.GetTopVideos(game, pagingInfo, periodType));
+            return _client.GetTopVideos<TwitchList<Video>>(game, pagingInfo, periodType);
         }
     }
 }

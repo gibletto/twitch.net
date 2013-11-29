@@ -1,14 +1,15 @@
-﻿using System.ComponentModel;
+﻿using Newtonsoft.Json;
+
 namespace Twitch.Net.Model
 {
-    [DisplayName("top")]
+    [JsonObject("top")]
     public class TopGame
     {
-        [DisplayName("game")]
+        [JsonProperty("game")]
         public Game Game { get; set; }
-        [DisplayName("viewers")]
+        [JsonProperty("viewers")]
         public long Viewers { get; set; }
-        [DisplayName("channels")]
+        [JsonProperty("channels")]
         public long Channels { get; set; }
     }
 }

@@ -43,14 +43,14 @@ namespace Twitch.Net.Tests.Integration
         [Test]
         public void Can_Retrieve_Channel()
         {
-            var channel = _twitchClient.GetChannel(_twitchChannel);
+            var channel = _twitchClient.GetChannel("Voyboy");
             Assert.That(channel != null);
         }
 
         [Test]
         public void Can_Retrieve_Channel_Videos()
         {
-            var videos = _twitchClient.GetChannelVideos(_twitchChannel);
+            var videos = _twitchClient.GetChannelVideos("Voyboy");
             Assert.That(videos != null);
         }
 

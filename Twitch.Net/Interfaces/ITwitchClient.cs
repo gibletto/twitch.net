@@ -17,7 +17,7 @@ namespace Twitch.Net.Interfaces
         dynamic GetIngests();
         dynamic GetRoot();
         dynamic SearchStreams(string query, PagingInfo info = null);
-        dynamic SearchGames(string query, SearchType searchType = SearchType.Suggest, bool live = false);
+        dynamic SearchGames(string query, SearchType searchType = SearchType.suggest, bool live = false);
         dynamic GetStream(string channel);
         dynamic GetStreams(string game = null, string channel = null, PagingInfo info = null, bool embeddableOnly = false, bool httpLiveStreaming = false);
         dynamic GetFeaturedSteams(PagingInfo info = null, bool httpLiveStreaming = false);
@@ -25,6 +25,6 @@ namespace Twitch.Net.Interfaces
         dynamic GetTeams();
         dynamic GetTeam(string team);
         dynamic GetVideo(string id);
-        dynamic GetTopVideos(string game = null, PagingInfo pagingInfo = null, PeriodType periodType = PeriodType.Week);
+        dynamic GetTopVideos(string game = null, PagingInfo pagingInfo = null, PeriodType periodType = PeriodType.week);
     }
 }

@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
-using System.ComponentModel;
+using Newtonsoft.Json;
 
 namespace Twitch.Net.Model
 {
     public class ChatLinks
     {
-        [DisplayName("_links")]
+        [JsonProperty("_links")]
         public Dictionary<string, object> Links { get; set; }
     }
 }

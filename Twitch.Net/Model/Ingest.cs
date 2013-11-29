@@ -1,19 +1,19 @@
-﻿using System.ComponentModel;
+﻿using Newtonsoft.Json;
 
 namespace Twitch.Net.Model
 {
-    [DisplayName("ingests")]
+    [JsonObject("ingests")]
     public class Ingest
     {
-        [DisplayName("_id")]
+        [JsonProperty("_id")]
         public long Id { get; set; }
-        [DisplayName("name")]
+        [JsonProperty("name")]
         public string Name { get; set; }
-        [DisplayName("default")]
+        [JsonProperty("default")]
         public bool Default { get; set; }
-        [DisplayName("url_template")]
+        [JsonProperty("url_template")]
         public string UrlTemplate { get; set; }
-        [DisplayName("availability")]
+        [JsonProperty("availability")]
         public double Availability { get; set; }
     }
 }

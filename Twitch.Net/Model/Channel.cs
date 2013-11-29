@@ -1,40 +1,40 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
+using Newtonsoft.Json;
 
 namespace Twitch.Net.Model
 {
     public class Channel : TwitchBase
     {
-        [DisplayName("_id")]
+        [JsonProperty("_id")]
         public long Id { get; set; }
-        [DisplayName("name")]
+        [JsonProperty("name")]
         public string Name { get; set; }
-        [DisplayName("game")]
+        [JsonProperty("game")]
         public string Game { get; set; }
-        [DisplayName("created_at")]
+        [JsonProperty("created_at")]
         public DateTime CreatedAt { get; set; }
-        [DisplayName("updated_at")]
+        [JsonProperty("updated_at")]
         public DateTime UpdatedAt { get; set; }
-        [DisplayName("title")]
+        [JsonProperty("title")]
         public string Title { get; set; }
-        [DisplayName("banner")]
+        [JsonProperty("banner")]
         public string Banner { get; set; }
-        [DisplayName("video_banner")]
+        [JsonProperty("video_banner")]
         public string VideoBanner { get; set; }
-        [DisplayName("background")]
+        [JsonProperty("background")]
         public string Background { get; set; }
-        [DisplayName("logo")]
+        [JsonProperty("logo")]
         public string Logo { get; set; }
-        [DisplayName("mature")]
+        [JsonProperty("mature")]
         public bool Mature { get; set; }
-        [DisplayName("url")]
+        [JsonProperty("url")]
         public string Url { get; set; }
-        [DisplayName("display_name")]
+        [JsonProperty("display_name")]
         public string DisplayName { get; set; }
-        [DisplayName("_links")]
+        [JsonProperty("_links")]
         public Dictionary<string, object> Links { get; set; } 
-        [DisplayName("teams")]
+        [JsonProperty("teams")]
         public List<Team> Teams { get; set; }       
     }
 }

@@ -1,17 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
+using Newtonsoft.Json;
 
 namespace Twitch.Net.Model
 {
-    [DisplayName("follows")]
+    [JsonObject("follows")]
     public class Follow : TwitchBase
     {
-        [DisplayName("created_at")]
+        [JsonProperty("created_at")]
         public DateTime CreatedAt { get; set; }
-        [DisplayName("_links")]
+        [JsonProperty("_links")]
         public Dictionary<string, object> Links { get; set; }
-        [DisplayName("channel")]
+        [JsonProperty("channel")]
         public Channel Channel { get; set; }
     }
 }

@@ -1,14 +1,12 @@
 ﻿using System.Collections.Generic;
-using System.ComponentModel;
+using Newtonsoft.Json;
+using Twitch.Net.Helpers;
 
 namespace Twitch.Net.Model
 {
-    public class TwitchList<T> : TwitchBase
+    [JsonObject(ItemConverterType = typeof(TwitchListConverter))]
+    public class TwitchList<T> : TwitchListBase
     {
-        [DisplayName("_links")]
-        public Dictionary<string,object> Links  { get; set; }
-        [DisplayName("_total")]
-        public long Total { get; set; }
         public IEnumerable<T> List { get; set; } 
     }
 }

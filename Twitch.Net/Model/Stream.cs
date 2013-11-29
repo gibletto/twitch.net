@@ -1,26 +1,26 @@
 ﻿using System.Collections.Generic;
-using System.ComponentModel;
+using Newtonsoft.Json;
 
 namespace Twitch.Net.Model
 {
-    [DisplayName("streams")]
+    [JsonObject("streams")]
     public class Stream
     {
-        [DisplayName("_id")]
+        [JsonProperty("_id")]
         public long Id { get; set; }
-        [DisplayName("_links")]
+        [JsonProperty("_links")]
         public Dictionary<string, object> Links { get; set; }
-        [DisplayName("broadcaster")]
+        [JsonProperty("broadcaster")]
         public string Broadcaster { get; set; }
-        [DisplayName("preview")]
+        [JsonProperty("preview")]
         public Dictionary<string, object> Preview { get; set; }
-        [DisplayName("viewers")]
+        [JsonProperty("viewers")]
         public long Viewers { get; set; }
-        [DisplayName("channel")]
+        [JsonProperty("channel")]
         public Channel Channel { get; set; }
-        [DisplayName("name")]
+        [JsonProperty("name")]
         public string Name { get; set; }
-        [DisplayName("game")]
+        [JsonProperty("game")]
         public string Game { get; set; }
     }
 }
