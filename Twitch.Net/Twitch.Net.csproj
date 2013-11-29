@@ -52,9 +52,9 @@
     <Compile Include="Clients\TwitchAuthenticatedClient.cs" />
     <Compile Include="Clients\TwitchReadOnlyClient.cs" />
     <Compile Include="Clients\TwitchStaticReadOnlyClient.cs" />
-    <Compile Include="Enums\ClientType.cs" />
     <Compile Include="Enums\PeriodType.cs" />
     <Compile Include="Enums\SearchType.cs" />
+    <Compile Include="Factories\TwitchClientFactory.cs" />
     <Compile Include="Helpers\DynamicJsonDeserializer.cs" />
     <Compile Include="Helpers\PagingInfo.cs" />
     <Compile Include="Helpers\RequestExtensions.cs" />
@@ -90,9 +90,7 @@
     <Compile Include="Model\Video.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Factories\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>

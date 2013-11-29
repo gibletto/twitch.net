@@ -1,14 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Twitch.Net.Enums;
+using RestSharp;
+
 
 namespace Twitch.Net.Interfaces
 {
-    interface ITwitchClientFactory
+    public interface ITwitchClientFactory
     {
-        ITwitchClient GetClient(ClientType clientType);
+        ITwitchStaticClient CreateStaticReadonlyClient(IRestClient restClient, Func<string, Method, IRestRequest> requestFactory);
+        ITwitchClient CreateDynamicReadonlyClient(IRestClient restClient, Func<string, Method, IRestRequest> requestFactory);
     }
 }

@@ -1,11 +1,10 @@
-﻿using System.Collections.Generic;
-using Twitch.Net.Enums;
+﻿using Twitch.Net.Enums;
 using Twitch.Net.Helpers;
 using Twitch.Net.Model;
 
 namespace Twitch.Net.Interfaces
 {
-    interface ITwitchStaticClient
+    public interface ITwitchStaticClient
     {
         User GetUser(string user);
         Channel GetChannel(string channel);
