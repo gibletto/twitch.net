@@ -6,3 +6,5 @@
 
 * Support for v2 of the Twitch.tv REST api
 * Uses dynamic objects or strongly typed objects.
+* 
+Please view the FrontEnd project to see example usages!
